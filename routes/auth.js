@@ -23,7 +23,7 @@ router.post("/login", async (req, res) => {
         const user = await User.findOne({ email: req.body.email });//同じemailがあるか見つける
         if(!user) return res.status(404).send("ユーザーが見つかりません");
 
-        const vailedPassword = req.body.password === user.password;
+        const vailedPassword = req.body.password === user.body.password;
         if(!vailedPassword) return res.status(400).json("パスワードが違います");
 
         return res.status(200).json(user)
