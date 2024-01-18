@@ -43,7 +43,7 @@ router.get("/:id", async (req, res) => {
         }
     });
 
-//ユーザーのフォロー
+//ユーザーのフォロー(自分が相手をフォローする)
 router.put("/:id/follow", async (req, res) => {//この:idはフォローされる側のid
     if(req.body.userId !== req.params.id) {
         try {
